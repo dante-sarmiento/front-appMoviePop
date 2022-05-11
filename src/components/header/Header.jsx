@@ -9,16 +9,12 @@ import { Menu } from 'antd'
 export const Header = () => {
     return (
         <>
-            <Menu>
-                <div className='containerHeader'>
+            <div className='containerHeader'>
+                <Menu >
                     <a href="/"><FontAwesomeIcon icon={faHouse} className='icons' /></a>
                     <a href="/movies"><FontAwesomeIcon icon={faMagnifyingGlass} className='icons' /></a>
-                </div>
-            </Menu>
-
-
-
-
+                </Menu>
+            </div>
         </>
     )
 }

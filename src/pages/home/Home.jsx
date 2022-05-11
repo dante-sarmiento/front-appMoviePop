@@ -3,7 +3,7 @@ import React from 'react'
 import { Header } from '../../components/header/Header'
 import { ContentHome } from '../../components/content/ContentHome'
 import { Route, Routes } from 'react-router-dom'
-import { MoviesGrid } from '../MoviesGrid/MoviesGrid'
+import { Movies } from '../Movies/Movies'
 
 
 export const Home = () => {
@@ -15,7 +15,7 @@ export const Home = () => {
                     </header>
                         <Routes>
                             <Route path="/" element={<ContentHome />}/>
-                            <Route path="/Movies" element={<MoviesGrid />}/>  
+                            <Route path="/Movies" element={<Movies />}/>  
                         </Routes>
                 </Layout>
 
