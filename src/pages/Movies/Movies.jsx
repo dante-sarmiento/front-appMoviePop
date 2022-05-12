@@ -1,8 +1,10 @@
-import {  Card, Input } from 'antd'
+import { Card, Input } from 'antd'
 import axios from 'axios';
 import React from 'react'
 import { useEffect, useState } from 'react';
+import { Route, Routes } from 'react-router-dom';
 import './movies.css'
+import { MoviesDetails } from './moviesDetails/MoviesDetails';
 import { MoviesGrid } from './moviesGrid/MoviesGrid';
 
 
@@ -14,7 +16,7 @@ export const Movies = () => {
   //   res.data.map(item => console.log(item.show));
   //   const moviesDb = res.data.map(item => <li>{item.show.id}</li>);
   //   console.log(moviesDb)
-    
+
   // }
   // useEffect(() => {
   //   loadMovies();
@@ -22,16 +24,18 @@ export const Movies = () => {
 
   return (
     <>
-      <div className='contInp'>
-        <Input placeholder="Buscar Películas" className='search' />
-      </div>
-      <div className='title'>
-        <h1 className='titleh1'>Películas</h1>
-      </div>
-      <main>
-      <MoviesGrid />
-      </main>
       
+        <div className='contInp'>
+          <Input placeholder="Buscar Películas" className='search' />
+        </div>
+        <div className='title'>
+          <h1 className='titleh1'>Películas</h1>
+        </div>
+        <main>
+          <MoviesGrid />
+        </main>
+      
+
 
     </>
   )

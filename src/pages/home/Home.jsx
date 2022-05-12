@@ -4,6 +4,7 @@ import { Header } from '../../components/header/Header'
 import { ContentHome } from '../../components/content/ContentHome'
 import { Route, Routes } from 'react-router-dom'
 import { Movies } from '../Movies/Movies'
+import { MoviesDetails } from '../Movies/moviesDetails/MoviesDetails'
 
 
 export const Home = () => {
@@ -15,7 +16,8 @@ export const Home = () => {
                     </header>
                         <Routes>
                             <Route path="/" element={<ContentHome />}/>
-                            <Route path="/Movies" element={<Movies />}/>  
+                            <Route path="/Movies" element={<Movies />}/>
+                            <Route path="/MoviesDetails/:movieID" element={<MoviesDetails />}/>  
                         </Routes>
                 </Layout>
 

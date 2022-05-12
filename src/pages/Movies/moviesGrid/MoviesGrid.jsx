@@ -25,7 +25,7 @@ export const MoviesGrid = () => {
       <ul className="moviesGrid">
         {!movies ? 'Cargando películas...' :
           movies.map((movie, index) => (
-            <Link className='link' to={"/movies/" + movie.show.id}  >
+            <Link className='link' to={'/moviesDetails/' + movie.show.id}>
               <Card key={movie.show.id}
                 className='card-container' bordered={false}>
                 <img src={movie.show.image.medium} alt="" />
