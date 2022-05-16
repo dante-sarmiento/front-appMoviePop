@@ -1,0 +1,15 @@
+.card-container{
+    width: 200px;
+}
+
+.link{
+    color: white;
+    text-decoration: none;
+}
+
+@media (max-width: 560px) {
+    .moviesGrid {
+    grid-template-columns: 100%;
+    text-align: center;
+    }
+}

@@ -1,0 +1,31 @@
+.LoginCont{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.containers{
+    padding: 40px;
+    background-color: rgb(44, 42, 66, 0.1);
+    margin-top: 100px;
+}
+.inps{
+    padding-bottom: 21px;
+}
+.itemBtn{
+    text-align: end;
+    
+}
+.btns{
+    background-color:  rgb(44, 42, 66);
+    color: white;
+    border-color: white;
+    margin-top: 5px;
+}
+@media screen and (max-width: 700px){
+    .LoginCont{
+        flex-direction: column;
+    }
+    .containers{
+        margin-top: 0px;
+    }
+}
