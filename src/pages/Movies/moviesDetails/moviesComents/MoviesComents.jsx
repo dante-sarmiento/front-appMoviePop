@@ -6,9 +6,9 @@ import React, { useEffect, useState } from 'react'
 import './moviesComents.css'
 import Item from 'antd/lib/list/Item'
 import { useParams } from 'react-router-dom'
-import { URLFromDb } from '../../../../constants/Endpoints'
+// import { URLFromDb } from '../../../../constants/Endpoints'
 
-
+const URLFromDb = process.env.REACT_APP_API_UR;
 
 export const MoviesComents = (movieId ) => {
   const [ coments, setComents ] = useState([]);

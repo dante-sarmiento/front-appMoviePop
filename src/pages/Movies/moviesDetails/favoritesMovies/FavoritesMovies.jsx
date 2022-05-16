@@ -1,8 +1,10 @@
 import { Button, Card } from 'antd'
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import { URLFromDb } from '../../../../constants/Endpoints'
+// import { URLFromDb } from '../../../../constants/Endpoints'
 import './favorites.css'
+
+const URLFromDb = process.env.REACT_APP_API_UR;
 
 export const FavoritesMovies = () => {
     const [favMovies, setFavMovies] = useState([])

@@ -5,7 +5,9 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import './movieDetails.css'
-import { URL, URLFromDb } from '../../../constants/Endpoints';
+import { URL } from '../../../constants/Endpoints';
+
+const URLFromDb = process.env.REACT_APP_API_UR;
 
 export const MoviesDetails = () => {
   const [movie, setMovie] = useState();

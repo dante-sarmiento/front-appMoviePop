@@ -3,7 +3,9 @@ import { CheckCircleOutlined } from "@ant-design/icons";
 import { Button, Form, Input, Modal } from "antd";
 import axios from "axios";
 import React from "react";
-import { URLFromDb } from "../../../constants/Endpoints";
+// import { URLFromDb } from "../../../constants/Endpoints";
+
+const URLFromDb = process.env.REACT_APP_API_UR;
 
 export const Register = () => {
 
