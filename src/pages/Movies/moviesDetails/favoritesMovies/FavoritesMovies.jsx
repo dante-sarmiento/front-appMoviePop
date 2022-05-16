@@ -9,22 +9,17 @@ export const FavoritesMovies = () => {
     const [ moviesFavo, setMoviesFavo ] = useState([])
     const [ MovieDel, setMovieDel ] = useState([])
     const userLS = JSON.parse(localStorage.getItem("currentUser"))
-    // console.log(userLS)
-    // console.log(moviesFavo);
 
     const getFavorites = async () => {
         try {
             const datFromDb = await axios.get(`${URLFromDb}/favorites`)
             const favoritesFromDb = datFromDb.data.favorites;
             setMovieDel(favoritesFromDb)
-            // console.log(favoritesFromDb)
             const favoritesFilter = favoritesFromDb.filter(item => item.user._id == userLS._id)
-            // console.log(favoritesFilter);
             const moviesToRender = favoritesFilter.map(item => ({
                 movieId: item.movieId
             }
             ))
-            // console.log(moviesToRender)
             setMoviesFavo(moviesToRender)
             
         }

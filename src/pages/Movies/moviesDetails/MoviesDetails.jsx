@@ -13,8 +13,6 @@ export const MoviesDetails = () => {
   const [movieId, setMovieid] = useState();
   const [coments, setComents] = useState([]);
   const userLS = JSON.parse(localStorage.getItem("currentUser"))
-  // console.log(movieId);
-  console.log(movies);
 
   const { movieID } = useParams()
 
@@ -24,12 +22,10 @@ export const MoviesDetails = () => {
     const movies = await axios.get(URL)
     setMovies(movies)
     const selectedMovie = movies.data.find(movie => {
-      console.log(movie.show.id)
       return movie.show.id == movieID
     })
     setMovie(selectedMovie.show)
     setMovieid(selectedMovie.show.id)
-    console.log(selectedMovie)
 
   }
 
@@ -55,17 +51,15 @@ export const MoviesDetails = () => {
     try {
       const dataFromDB = await axios.get(`${URLFromDb}/coments`)
       const comentsFromDb = dataFromDB.data.comentarios;
-      console.log(comentsFromDb);
       const comentsFilter = comentsFromDb.filter(item => item.movieID == movieID)
       const comentsToRender = comentsFilter.map(item => ({
         coment: item.coment.coment,
         user: item.user.fullName
       }
       ))
-      console.log(comentsToRender)
       setComents(comentsToRender)
 
-      // setComents(comentsToRender)
+  
     }
     catch (error) {
       console.log(error)
@@ -79,9 +73,7 @@ export const MoviesDetails = () => {
       movieId: movie
     }
     try {
-      console.log(favData)
       const addFav = await axios.post(`${URLFromDb}/favorites`, favData)
-      console.log(addFav)
       alert('se ha añadido a favoritos')
     }
     catch (error) {

@@ -10,10 +10,8 @@ export const Register = () => {
     const validationOn = true;
 
     const registerUser = async (formData) => {
-        console.log(formData)
         try {
             const { data } = await axios.post(`${URLFromDb}/user`, formData)
-            console.log("data ususario", data.usuarioNuevo)
             alert("usuario creado exitosamente")
             
         } catch (err) {

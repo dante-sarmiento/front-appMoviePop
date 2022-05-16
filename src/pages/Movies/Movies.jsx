@@ -16,7 +16,6 @@ export const Movies = () => {
     const response = await fetch(URL)
     const responseJSON = await response.json()
     setMovies(responseJSON)
-    console.log(responseJSON)
   }
 
 

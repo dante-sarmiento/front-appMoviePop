@@ -11,7 +11,6 @@ import { URLFromDb } from '../../../../constants/Endpoints'
 
 
 export const MoviesComents = (movieId ) => {
-  console.log(movieId.movieId)
   const [ coments, setComents ] = useState([]);
 
 

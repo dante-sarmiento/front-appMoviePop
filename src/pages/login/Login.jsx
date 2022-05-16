@@ -18,7 +18,6 @@ export const Login = () => {
 
     const onLogin = async (loginData) => {
         try {
-            console.log(loginData)
             const login = await axios.post(`${URLFromDb}/login`, loginData);
             localStorage.setItem('userToken', JSON.stringify(login.data.token));
             setToken(login.data.token)
