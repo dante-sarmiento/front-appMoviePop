@@ -1,4 +1,4 @@
-import { Button, Col, Form, Input, Modal } from 'antd'
+import { Button, Col, Form, Input } from 'antd'
 import axios from 'axios'
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -6,7 +6,7 @@ import { Register } from './register/Register';
 import './login.css';
 // import { URLFromDb } from '../../constants/Endpoints';
 
-const URLFromDb = process.env.REACT_APP_API_UR;
+const URLFromDb = process.env.REACT_APP_API_URL;
 
 
 export const Login = () => {

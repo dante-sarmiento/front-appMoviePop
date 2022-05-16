@@ -7,7 +7,7 @@ import { useParams } from 'react-router-dom'
 import './movieDetails.css'
 import { URL } from '../../../constants/Endpoints';
 
-const URLFromDb = process.env.REACT_APP_API_UR;
+const URLFromDb = process.env.REACT_APP_API_URL;
 
 export const MoviesDetails = () => {
   const [movie, setMovie] = useState();

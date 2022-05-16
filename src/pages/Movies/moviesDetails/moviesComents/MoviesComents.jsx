@@ -1,14 +1,11 @@
-import { UserOutlined } from '@ant-design/icons'
-import { Avatar, Button, Comment, Form, Input } from 'antd'
+import {  Button, Form, Input } from 'antd'
 import axios from 'axios'
-import { Comentarios } from './comentarios/Comentarios'
 import React, { useEffect, useState } from 'react'
 import './moviesComents.css'
-import Item from 'antd/lib/list/Item'
-import { useParams } from 'react-router-dom'
+
 // import { URLFromDb } from '../../../../constants/Endpoints'
 
-const URLFromDb = process.env.REACT_APP_API_UR;
+const URLFromDb = process.env.REACT_APP_API_URL;
 
 export const MoviesComents = (movieId ) => {
   const [ coments, setComents ] = useState([]);

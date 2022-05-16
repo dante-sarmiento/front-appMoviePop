@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react'
 // import { URLFromDb } from '../../../../constants/Endpoints'
 import './favorites.css'
 
-const URLFromDb = process.env.REACT_APP_API_UR;
+const URLFromDb = process.env.REACT_APP_API_URL;
 
 export const FavoritesMovies = () => {
     const [favMovies, setFavMovies] = useState([])
