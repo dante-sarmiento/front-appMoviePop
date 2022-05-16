@@ -1,7 +1,16 @@
 .contInp{
-    margin: 20px;
     width: auto;
     text-align: center;
+    padding-top: 80px;
+}
+.contentCards{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 280px);
+    gap: 40px;
+    padding: 40px;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
 }
 .search{
     height: 60px;

@@ -10,6 +10,7 @@ body {
 background: rgb(14, 13, 37);
 color: white;
 font-family: nunito;
+height: 100vh;
 }
 
 code {
@@ -19,12 +20,15 @@ code {
 .container{
   display: block;
   text-align: center;
-  
+  padding-top: 80px;
   font-size: 30px;
   color: rgb(248, 217, 176);
 }
 .logo{
   width: 300px;
+}
+Button{
+  cursor: pointer;
 }
 
 

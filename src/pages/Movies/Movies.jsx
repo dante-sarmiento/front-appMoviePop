@@ -1,40 +1,44 @@
-import { Card, Input } from 'antd'
-import axios from 'axios';
+import { Input } from 'antd';
 import React from 'react'
 import { useEffect, useState } from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { URL } from '../../constants/Endpoints';
 import './movies.css'
-import { MoviesDetails } from './moviesDetails/MoviesDetails';
 import { MoviesGrid } from './moviesGrid/MoviesGrid';
+import InfiniteScroll from 'react-infinite-scroll-component'
+
 
 
 export const Movies = () => {
   const [movies, setMovies] = useState([]);
 
-  // async function loadMovies() {
-  //   const res = await axios.get(`http://api.tvmaze.com/search/shows?q=star%20wars.`);
-  //   res.data.map(item => console.log(item.show));
-  //   const moviesDb = res.data.map(item => <li>{item.show.id}</li>);
-  //   console.log(moviesDb)
+  // const URL = 'http://api.tvmaze.com/search/shows?q=star%20wars'
+  const fetchApi = async () => {
+    const response = await fetch(URL)
+    const responseJSON = await response.json()
+    setMovies(responseJSON)
+    console.log(responseJSON)
+  }
 
-  // }
-  // useEffect(() => {
-  //   loadMovies();
-  // }, []);
+
+  useEffect(() => {
+    fetchApi()
+  }, [])
 
   return (
     <>
-      
-        <div className='contInp'>
-          <Input placeholder="Buscar Películas" className='search' />
-        </div>
-        <div className='title'>
-          <h1 className='titleh1'>Películas</h1>
-        </div>
-        <main>
-          <MoviesGrid />
-        </main>
-      
+
+      <div className='contInp'>
+        <Input className='search' placeholder='Buscar películas'></Input>
+      </div>
+      <div className='title'>
+        <h1 className='titleh1'>Películas</h1>
+      </div>
+      <main className='contentCards'>
+        {movies.map((movie) => (
+          <MoviesGrid key={movie.id} movie={movie} />
+        ))}
+      </main>
+
 
 
     </>

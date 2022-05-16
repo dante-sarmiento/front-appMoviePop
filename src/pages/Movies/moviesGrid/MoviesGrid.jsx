@@ -4,37 +4,20 @@ import { Link } from 'react-router-dom'
 import "./moviesGrid.css"
 
 
-export const MoviesGrid = () => {
-  const [movies, setMovies] = useState()
-
-  const URL = 'http://api.tvmaze.com/search/shows?q=star%20wars'
-  const fetchApi = async () => {
-    const response = await fetch(URL)
-    console.log(response.status)
-    const responseJSON = await response.json()
-    setMovies(responseJSON)
-    console.log(responseJSON)
-  }
-
-  useEffect(() => {
-    fetchApi()
-  }, [])
+export const MoviesGrid = (movie) => {
 
   return (
     <div>
       <ul className="moviesGrid">
-        {!movies ? 'Cargando películas...' :
-          movies.map((movie, index) => (
-            <Link className='link' to={'/moviesDetails/' + movie.show.id}>
-              <Card key={movie.show.id}
+            <Link className='link' to={'/moviesDetails/' + movie.movie.show.id}>
+              <Card key={movie.movie.show.id}
                 className='card-container' bordered={false}>
-                <img src={movie.show.image.medium} alt="" />
+                <img src={movie.movie.show.image.medium} alt="" />
                 <div className='card-info'>
-                  <h3 className='titulo'>{movie.show.name}</h3>
+                  <h3 className='titulo'>{movie.movie.show.name}</h3>
                 </div>
               </Card>
             </Link>
-          ))}
       </ul>
     </div>
   )
