@@ -1,37 +1,48 @@
 import { Button, Card } from 'antd'
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-// import { URLFromDb } from '../../../../constants/Endpoints'
+import { URLFromDb } from '../../../../constants/Endpoints'
 import './favorites.css'
 
-const URLFromDb = process.env.REACT_APP_API_URL;
-
 export const FavoritesMovies = () => {
-    const [favMovies, setFavMovies] = useState([])
     const [ moviesFavo, setMoviesFavo ] = useState([])
     const [ MovieDel, setMovieDel ] = useState([])
     const userLS = JSON.parse(localStorage.getItem("currentUser"))
+    // console.log(userLS)
+
 
     const getFavorites = async () => {
         try {
             const datFromDb = await axios.get(`${URLFromDb}/favorites`)
             const favoritesFromDb = datFromDb.data.favorites;
             setMovieDel(favoritesFromDb)
-            const favoritesFilter = favoritesFromDb.filter(item => item.user._id == userLS._id)
-            const moviesToRender = favoritesFilter.map(item => ({
-                movieId: item.movieId
-            }
-            ))
-            setMoviesFavo(moviesToRender)
-            
+            // console.log(favoritesFromDb)
         }
         catch (error) {
             console.log(error)
         }
     }
+
+    const deleteFav = async (id) => {
+        console.log(id);
+        try{
+            let movDE = MovieDel.find(item => item._id === id)
+            console.log(movDE);
+            const deleteMovie = await axios.delete(`http://localhost:3100/api/favorites/${id}`);
+            console.log(deleteMovie);
+            const d = MovieDel.filter(item => item._id !== id)
+            console.log(d);
+            setMoviesFavo(d)
+            window.location.reload()
+        }
+        catch(error){
+            console.log(error);
+        }
+    }
     useEffect(() => {
         getFavorites()
     }, [])
+     
 
     return (
         <>
@@ -40,7 +51,7 @@ export const FavoritesMovies = () => {
             </div>
                 <div className='contLi'>
                     <ul className='moviesLi'>
-                        {moviesFavo.map((item) => (
+                        {MovieDel.map((item) => (
                             <div className='divCard'>
                                 <Card key={item.movieId.id}
                                     bordered={false}>
@@ -48,6 +59,7 @@ export const FavoritesMovies = () => {
                                     <div className='card-info'>
                                         <h3 className='titulo'>{item.movieId.name}</h3>
                                     </div>
+                                    <Button type='primary'  onClick={()=> deleteFav(item._id)}>eliminar de favoritas</Button>
                                 </Card>
                             </div>
                         ))}
