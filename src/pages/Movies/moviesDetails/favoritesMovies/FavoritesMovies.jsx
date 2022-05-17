@@ -1,8 +1,9 @@
 import { Button, Card } from 'antd'
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import { URLFromDb } from '../../../../constants/Endpoints'
 import './favorites.css'
+
+const URLFromDb = process.env.REACT_APP_API_URL;
 
 export const FavoritesMovies = () => {
     const [ moviesFavo, setMoviesFavo ] = useState([])
@@ -28,7 +29,7 @@ export const FavoritesMovies = () => {
         try{
             let movDE = MovieDel.find(item => item._id === id)
             console.log(movDE);
-            const deleteMovie = await axios.delete(`http://localhost:3100/api/favorites/${id}`);
+            const deleteMovie = await axios.delete(`${URLFromDb}/favorites/${id}`);
             console.log(deleteMovie);
             const d = MovieDel.filter(item => item._id !== id)
             console.log(d);
@@ -70,3 +71,7 @@ export const FavoritesMovies = () => {
         </>
     )
 }
+
+
+
+
