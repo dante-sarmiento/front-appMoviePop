@@ -96,7 +96,7 @@ export const MoviesDetails = () => {
   return (
     <>
       <div className='imgTitle'>
-        <img className='imag p-10' src={movie?.image.original} alt={movie?.name} />
+        <img className='imag p-10' src={movie?.image?.original} alt={movie?.name} />
         <h1>{movie?.name}</h1>
       </div>
       <div className='details'>
