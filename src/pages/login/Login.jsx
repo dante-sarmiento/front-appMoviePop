@@ -71,7 +71,6 @@ export const Login = () => {
                             className='inps'
                                 label="Email"
                                 name="email"
-                                initialValue="dante@dante.com"
                                 rules={[
                                     {
                                         required: true,
@@ -87,7 +86,6 @@ export const Login = () => {
                             className='inps'
                                 label="Password"
                                 name="password"
-                                initialValue="administrador"
                                 rules={[
                                     {
                                         required: true,

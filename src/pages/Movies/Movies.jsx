@@ -1,11 +1,10 @@
-import { Card, Input } from 'antd';
+import { Input } from 'antd';
 import React from 'react'
 import { useEffect, useState } from 'react';
 import { URL } from '../../constants/Endpoints';
 import './movies.css'
 import { MoviesGrid } from './moviesGrid/MoviesGrid';
-import InfiniteScroll from 'react-infinite-scroll-component'
-import { Link } from 'react-router-dom';
+
 
 
 export const Movies = () => {
